@@ -34,6 +34,7 @@ public class ItemController {
         return itemService.postCall(query, requestDto);
     }
 
+    // [4]서버 - 헤더의 토큰, 바디의 객체 받을 것 Dto 객체로 매개변수로 받음
     @PostMapping("/exchange-call")
     public ItemResponseDto exchangeCall(@RequestHeader("X-Authorization") String token, @RequestBody UserRequestDto requestDto) {
         return itemService.exchangeCall(token, requestDto);

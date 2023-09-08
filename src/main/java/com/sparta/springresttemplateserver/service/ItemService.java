@@ -42,6 +42,10 @@ public class ItemService {
     }
 
     public ItemResponseDto exchangeCall(String token, UserRequestDto requestDto) {
-        return null;
-    }
+        System.out.println("token = " + token);
+        System.out.println("requestDto.getUsername() = " + requestDto.getUsername());
+        System.out.println("requestDto.getPassword() = " + requestDto.getPassword());
+
+        return getCallList();
+    }//위에 메소드 재활용해서 item 배열 모두 반환
 }
