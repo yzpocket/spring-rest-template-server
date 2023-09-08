@@ -16,17 +16,20 @@ public class ItemController {
         this.itemService = itemService;
     }
 
+    // [1]서버 - 하나 받고 다시 주기
     @GetMapping("/get-call-obj") // Client측 restTemplate.getForEntity(uri, ItemDto.class)로부터 해당 경로로 쿼리문으로 변환된 상태로 요청이 들어옴
     public Item getCallObject(@RequestParam String query) {
         return itemService.getCallObject(query);
     }
 
+    // [2]서버 - String 받고 하나씩 객체 배열만들어서 모두 응답해주기
     @GetMapping("/get-call-list")
     public ItemResponseDto getCallList() {
         return itemService.getCallList();
     }
 
-    @PostMapping("/post-call/{query}")
+    // [3]서버 - PathVariable
+    @PostMapping("/post-call/{query}") //PathVariable 방식으로 받고 있음
     public Item postCall(@PathVariable String query, @RequestBody UserRequestDto requestDto) {
         return itemService.postCall(query, requestDto);
     }
